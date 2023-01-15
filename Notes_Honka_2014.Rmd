@@ -1,0 +1,33 @@
+---
+title: "Notes_Honka_2014"
+author: "Yuki KAYABA"
+date: "1/15/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Summary of the Paper
+
+（ひとことメモ）
+
+- 
+
+## Motivation
+
+- 
+
+## Related Literature
+
+- 
+
+## Contribution
+
+- 
+
+# Details of the Paper
+
+## Model
+
