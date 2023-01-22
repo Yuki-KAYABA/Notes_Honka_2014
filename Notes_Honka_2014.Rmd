@@ -1,12 +1,17 @@
 ---
-title: "Notes_Honka_2014"
+title: "Notes: Honka (2014) Quantifying Search and Switching Costs in the U.S. Auto Insurance Industry"
 author: "Yuki KAYABA"
 date: "1/15/2023"
-output: html_document
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook: default
+output_dir: docs
+bookdown::gitbook: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(bookdown)
 ```
 
 # Summary of the Paper
@@ -15,9 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - 
 
+
 ## Motivation
 
-- 
+- This paper focuses on two types of market frictions, namely, consumer search and switching costs
+- Quantifying market frictions is important for the following reasons
+  - Accounting for consumers' limited information is necessary to recover true consumer preferences
+  - Both search and switching costs can increase companies' market power and lead to higher prices for consumers
 
 ## Related Literature
 
@@ -30,4 +39,35 @@ knitr::opts_chunk$set(echo = TRUE)
 # Details of the Paper
 
 ## Model
+
+### Main Model Assumptions
+
+- The consumer’s search and purchase decisions are conditional on his choice of coverage
+- Consumers search to resolve uncertainty about prices
+- Consumers use a simultaneous search approach
+
+### Model Development
+
+- $i = 1, ..., N$ consumers
+- $m = 1, ..., M$ markets (states)
+- $j = 1, ..., J$ insurance companies
+- $j = 1, ..., J_{m}$ insurance companies within state $m$
+- $\Psi_{m}$: the set of available auto insurers in state $m$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
