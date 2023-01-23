@@ -112,15 +112,67 @@
 </div>
 <div id="model-development" class="section level3 hasAnchor" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Model Development<a href="details-of-the-paper.html#model-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Notations</strong></p>
 <ul>
 <li><span class="math inline">\(i = 1, ..., N\)</span> consumers</li>
 <li><span class="math inline">\(m = 1, ..., M\)</span> markets (states)</li>
 <li><span class="math inline">\(j = 1, ..., J\)</span> insurance companies</li>
 <li><span class="math inline">\(j = 1, ..., J_{m}\)</span> insurance companies within state <span class="math inline">\(m\)</span></li>
 <li><span class="math inline">\(\Psi_{m}\)</span>: the set of available auto insurers in state <span class="math inline">\(m\)</span></li>
+<li><span class="math inline">\(c_{i}\)</span>: consumer search costs</li>
+<li><span class="math inline">\(k\)</span>: the number of searches that a consumer conducts</li>
+<li><span class="math inline">\(S_{i}\)</span>: the set of companies that a consumer searches</li>
+<li><span class="math inline">\(\overline{S_{i}}\)</span>: the set of companies that a consumer does not search</li>
+<li><span class="math inline">\(j_{I_{ij, t-1}}\)</span>: the previous insurer</li>
+<li><span class="math inline">\(C_{i} = S_{i} \cup \{ j_{I_{ij, t-1}} \}\)</span>: The consumer’s consideration set</li>
+<li><span class="math inline">\(\Psi_{m} = C_{i} \cup \overline{S_{i}}\)</span>: The consumer’s consideration set</li>
+</ul>
+<p><strong>Indirect Utility</strong></p>
+<p>Consumer <span class="math inline">\(i\)</span>’s indirect utility for company <span class="math inline">\(j\)</span> is given by:</p>
+<p><span class="math display">\[
+u_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma p_{ij} + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\beta_{i} = \tilde{\beta} + Z_{i} \kappa\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\epsilon_{ij}\)</span> captures a component of the utility that is observed by the consumer, but not the researcher</li>
+<li><span class="math inline">\(\epsilon_{ij}\)</span> follows an EV Type I distribution with location parameter 0 and scale parameter 1</li>
+<li><span class="math inline">\(\alpha_{ij}\)</span> are consumer-specific brand intercepts</li>
+<li>Let <span class="math inline">\(\alpha = (\alpha_{1}, ..., \alpha_{J})\)</span> and assume that <span class="math inline">\(\alpha\)</span> follows a MVN distribution with mean <span class="math inline">\(\overline{\alpha}\)</span> and covariance matrix <span class="math inline">\(\Sigma_{\alpha}\)</span></li>
+<li><span class="math inline">\(\beta_{i}\)</span> captures consumer inertia</li>
+<li><span class="math inline">\(I_{ij, t-1}\)</span> is a dummy variable indicating whether company <span class="math inline">\(j\)</span> is consumer <span class="math inline">\(i\)</span>’s previous insurer</li>
+<li><span class="math inline">\(Z_{i}\)</span> contains demographic factors, psychographic factors, and customer satisfaction with the previous insurer</li>
+<li>Inertia <span class="math inline">\(\beta_{i}\)</span> is divided into two parts (to separately evaluate its effects in counterfactuals):
+<ul>
+<li><strong>customer switching costs</strong>: the constant <span class="math inline">\(\tilde{\beta}\)</span>, demographic factors, and psychographic factors</li>
+<li><strong>customer satisfaction</strong>: customer satisfaction</li>
+</ul></li>
+<li><span class="math inline">\(\gamma\)</span> captures price sensitivity</li>
+<li><span class="math inline">\(p_{ij}\)</span> denotes the price charged by company <span class="math inline">\(j\)</span></li>
+<li>Assume prices <span class="math inline">\(p_{ij}\)</span> follows as EV Type I distribution with location parameter <span class="math inline">\(\eta_{ij}\)</span> and scale parameter <span class="math inline">\(\mu\)</span> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li><span class="math inline">\(X_{ij}\)</span> is a vector of product- and consumer-specific attributes</li>
+<li><span class="math inline">\(W_{i}\)</span> contaions demographic factors, psychographic factors, and regional fixed effects that are common across <span class="math inline">\(j\)</span></li>
+</ul>
+<p><strong>EIU (Expected Indirect Utility)</strong></p>
+<ul>
+<li>Assume that consumers know all company characteristics <strong>except for prices</strong> (searching for prices is costly)</li>
+<li>Consumers do not search their previous insurer as insurance companies automatically send their customers renewal notices and thus consumers receive a free quote from their previous insurer (“fall-back option”)</li>
+<li>Before collecting price information, consumers have to decide which companies to search</li>
+<li>Following Chade and Smith (2005), assume that first order stochastic dominance among the price belief distributions and use the optimal selectin strategy</li>
 </ul>
 </div>
 </div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>ConsumerはPriceはSearchするまでわからないがPriceの分布はわかっている。また、Consumer BeliefはRational Expectationと仮定（後述）<a href="details-of-the-paper.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
