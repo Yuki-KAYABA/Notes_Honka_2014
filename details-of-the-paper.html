@@ -124,8 +124,8 @@
 <li><span class="math inline">\(S_{i}\)</span>: the set of companies that a consumer searches</li>
 <li><span class="math inline">\(\overline{S_{i}}\)</span>: the set of companies that a consumer does not search</li>
 <li><span class="math inline">\(j_{I_{ij, t-1}}\)</span>: the previous insurer</li>
-<li><span class="math inline">\(C_{i} = S_{i} \cup \{ j_{I_{ij, t-1}} \}\)</span>: The consumer’s consideration set</li>
-<li><span class="math inline">\(\Psi_{m} = C_{i} \cup \overline{S_{i}}\)</span>: The consumer’s consideration set</li>
+<li><span class="math inline">\(C_{i} = S_{i} \cup \{ j_{I_{ij, t-1}} \}\)</span>: the consumer’s consideration set</li>
+<li><span class="math inline">\(\Psi_{m} = C_{i} \cup \overline{S_{i}}\)</span></li>
 </ul>
 <p><strong>Indirect Utility</strong></p>
 <p>Consumer <span class="math inline">\(i\)</span>’s indirect utility for company <span class="math inline">\(j\)</span> is given by:</p>
@@ -154,11 +154,47 @@ u_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma p_{ij} + X_{ij}\rho + W_{i
 </ul>
 <p><strong>EIU (Expected Indirect Utility)</strong></p>
 <ul>
-<li>Assume that consumers know all company characteristics <strong>except for prices</strong> (searching for prices is costly)</li>
+<li>Assume that consumers know all company characteristics except for prices (searching for prices is costly)</li>
 <li>Consumers do not search their previous insurer as insurance companies automatically send their customers renewal notices and thus consumers receive a free quote from their previous insurer (“fall-back option”)</li>
 <li>Before collecting price information, consumers have to decide which companies to search</li>
-<li>Following Chade and Smith (2005), assume that first order stochastic dominance among the price belief distributions and use the optimal selectin strategy</li>
+<li>Following Chade and Smith (2005), assume that first order stochastic dominance among the price belief distributions and use the optimal selection strategy</li>
+<li>The consumer makes the decisions of which and how many companies to search at the same time</li>
+<li>Consumer <span class="math inline">\(i\)</span>’s expected indirect utility (EIU) is given by:</li>
 </ul>
+<p><span class="math display">\[
+E[u_{ij}] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E[p_{ij}] + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
+\]</span></p>
+<ul>
+<li>Consumer <span class="math inline">\(i\)</span> ranks all companies other than his previous insurance provider according to their EIUs and then picks the top <span class="math inline">\(k\)</span> companies to search</li>
+<li><span class="math inline">\(R_{ik}\)</span> denotes the set of top <span class="math inline">\(k\)</span> companies consumer <span class="math inline">\(i\)</span> ranks highest according to their EIU</li>
+<li>To decide on the number of companies <span class="math inline">\(k\)</span>, the consumer calculates the net benefit of all possible search sets <em>given the ranking of EIUs</em></li>
+<li>A consumer’s benefit of a searched set is then given by the expected <em>maximum</em> utility among the searched brands</li>
+<li>Given the EV distribution of prices, the maximum utility has also an EV distribution:</li>
+</ul>
+<p><span class="math display">\[
+\max_{j \in R_{ik}} u_{ij} \sim EV(\frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij}), b)
+\]</span></p>
+<p>with <span class="math inline">\(a_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma \eta_{ij} + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}\)</span> and <span class="math inline">\(b = \frac{\mu}{\gamma}\)</span>.</p>
+<ul>
+<li>The benefit of a searched set is given by</li>
+</ul>
+<p><span class="math display">\[
+E[\max_{j \in R_{ik}} u_{ij}] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
+\]</span></p>
+<p>where <span class="math inline">\(\tilde{a}_{R_{ik}} = \frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij})\)</span> and <span class="math inline">\(e_{c}\)</span> is the Euler constant</p>
+<ul>
+<li>The consumer picks <span class="math inline">\(S_{ik}\)</span> which maximizes his net benefit of searching denoted <span class="math inline">\(\Gamma_{i, k+1}\)</span>, i.e. the expected utility among the considered companies minus the cost of search:</li>
+</ul>
+<p><span class="math display">\[
+\Gamma_{i, k+1} = E \left[ \max_{j \in R_{ik} \cup \left\{j_{I_{ij, t-1}} \right\}} u_{ij} \right] - kc_{i}
+\]</span></p>
+<ul>
+<li>The consumer picks the number of searches <span class="math inline">\(k\)</span> which maximizes his net benefit of search</li>
+<li>The consumer then picks the company with the highest utility among the considered companies:</li>
+</ul>
+<p><span class="math display">\[
+j = \mathop{\rm argmax}\limits_{\boldsymbol{j \in C_{i}}} u_{ij}
+\]</span></p>
 </div>
 </div>
 </div>
