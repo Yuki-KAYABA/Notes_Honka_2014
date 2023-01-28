@@ -101,7 +101,7 @@ where $\beta_{i} = \tilde{\beta} + Z_{i} \kappa$.
 - Consumer $i$'s expected indirect utility (EIU) is given by:
 
 $$
-E[u_{ij}] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E[p_{ij}] + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
+E \left[ u_{ij} \right] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E \left[ p_{ij} \right] + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
 $$
 
 - Consumer $i$ ranks all companies other than his previous insurance provider according to their EIUs and then picks the top $k$ companies to search
@@ -111,7 +111,7 @@ $$
 - Given the EV distribution of prices, the maximum utility has also an EV distribution:
 
 $$
-\max_{j \in R_{ik}} u_{ij} \sim EV(\frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij}), b)
+\max_{j \in R_{ik}} u_{ij} \sim EV \left( \frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij}), b \right)
 $$
 
 with $a_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma \eta_{ij} + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}$ and $b = \frac{\mu}{\gamma}$.
@@ -119,7 +119,7 @@ with $a_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma \eta_{ij} + X_{ij}\r
 - The benefit of a searched set is given by
 
 $$
-E[\max_{j \in R_{ik}} u_{ij}] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
+E \left[ \max_{j \in R_{ik}} u_{ij} \right] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
 $$
 
 where $\tilde{a}_{R_{ik}} = \frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij})$ and $e_{c}$ is the Euler constant
@@ -138,12 +138,33 @@ j = \mathop{\rm argmax}\limits_{\boldsymbol{j \in C_{i}}} u_{ij}
 $$
 
 
+## Estimation
 
+- Differences between what the consumer observes and what the researcher observes:
+  1. Whereas the consumer knows the distributions of prices in the market, the researcher estimates the parameters defining the price distributions
+  2. Whereas the consumer knows his psychographic factors and brand preferences, the researcher estimates the psychographic and observed brand preference factors
+  3. Whereas the consumer knows each company’s position in the EIU ranking, the researcher only partially observes the ranking by observing which companies are being searched and which ones are not being searched
+  4. In contrast to the consumer, the researcher does not observe $\alpha_{ij}$ and $\epsilon_{ij}$
+  
+- Tackle the first two points by integrating over the empirical distributions of the price, psychographics and observed brand preferences parameters given the sampling error associated with estimating these parameters
+- To address the third issue, I point out that partially observing the ranking contains information that allows us to estimate the composition of consideration sets
+- Because the consumer ranks the companies according to their EIU and only searches the highest ranked companies, the researcher knows from observing which companies are searched that the EIUs among all the searched companies have to be larger than the EIUs of the non-searched companies
 
+$$
+\min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j' \notin S_{i}} E \left[ u_{ij'} \right] 
+$$
 
+- As a consumer decides simultaneously which and how many companies to search, the following condition has to hold for any searched set:
 
+$$
+\min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j' \notin S_{i}} E \left[ u_{ij'} \right] \cap \Gamma_{i, k} \geq \Gamma_{i, k'} \quad \forall k \neq k'
+$$
 
+- Then the probability that a consumer picks a consideration set $\Upsilon$ is given by
 
+$$
+P_{i \Upsilon \mid \alpha, \epsilon} = \Pr \left( \min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j' \notin S_{i}} E \left[ u_{ij'} \right] \cap \Gamma_{i, k + 1} \geq \Gamma_{i, k' + 1} \quad \forall k \neq k' \right)
+$$
 
 
 

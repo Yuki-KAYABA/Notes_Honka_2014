@@ -80,6 +80,7 @@
 <li class="chapter" data-level="2.1.1" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#main-model-assumptions"><i class="fa fa-check"></i><b>2.1.1</b> Main Model Assumptions</a></li>
 <li class="chapter" data-level="2.1.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#model-development"><i class="fa fa-check"></i><b>2.1.2</b> Model Development</a></li>
 </ul></li>
+<li class="chapter" data-level="2.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#estimation"><i class="fa fa-check"></i><b>2.2</b> Estimation</a></li>
 </ul></li>
 </ul>
 
@@ -162,7 +163,7 @@ u_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma p_{ij} + X_{ij}\rho + W_{i
 <li>Consumer <span class="math inline">\(i\)</span>’s expected indirect utility (EIU) is given by:</li>
 </ul>
 <p><span class="math display">\[
-E[u_{ij}] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E[p_{ij}] + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
+E \left[ u_{ij} \right] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E \left[ p_{ij} \right] + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}
 \]</span></p>
 <ul>
 <li>Consumer <span class="math inline">\(i\)</span> ranks all companies other than his previous insurance provider according to their EIUs and then picks the top <span class="math inline">\(k\)</span> companies to search</li>
@@ -172,14 +173,14 @@ E[u_{ij}] = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma E[p_{ij}] + X_{ij}\rho 
 <li>Given the EV distribution of prices, the maximum utility has also an EV distribution:</li>
 </ul>
 <p><span class="math display">\[
-\max_{j \in R_{ik}} u_{ij} \sim EV(\frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij}), b)
+\max_{j \in R_{ik}} u_{ij} \sim EV \left( \frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij}), b \right)
 \]</span></p>
 <p>with <span class="math inline">\(a_{ij} = \alpha_{ij} + \beta_{i} I_{ij, t-1} + \gamma \eta_{ij} + X_{ij}\rho + W_{i} \phi + \epsilon_{ij}\)</span> and <span class="math inline">\(b = \frac{\mu}{\gamma}\)</span>.</p>
 <ul>
 <li>The benefit of a searched set is given by</li>
 </ul>
 <p><span class="math display">\[
-E[\max_{j \in R_{ik}} u_{ij}] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
+E \left[ \max_{j \in R_{ik}} u_{ij} \right] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
 \]</span></p>
 <p>where <span class="math inline">\(\tilde{a}_{R_{ik}} = \frac{1}{b} \ln \sum_{j \in R_{ik}} \exp(ba_{ij})\)</span> and <span class="math inline">\(e_{c}\)</span> is the Euler constant</p>
 <ul>
@@ -196,6 +197,30 @@ E[\max_{j \in R_{ik}} u_{ij}] = \tilde{a}_{R_{ik}} + \frac{e_{c}}{b}
 j = \mathop{\rm argmax}\limits_{\boldsymbol{j \in C_{i}}} u_{ij}
 \]</span></p>
 </div>
+</div>
+<div id="estimation" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Estimation<a href="details-of-the-paper.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Differences between what the consumer observes and what the researcher observes:
+<ol style="list-style-type: decimal">
+<li>Whereas the consumer knows the distributions of prices in the market, the researcher estimates the parameters defining the price distributions</li>
+<li>Whereas the consumer knows his psychographic factors and brand preferences, the researcher estimates the psychographic and observed brand preference factors</li>
+<li>Whereas the consumer knows each company’s position in the EIU ranking, the researcher only partially observes the ranking by observing which companies are being searched and which ones are not being searched</li>
+<li>In contrast to the consumer, the researcher does not observe <span class="math inline">\(\alpha_{ij}\)</span> and <span class="math inline">\(\epsilon_{ij}\)</span></li>
+</ol></li>
+<li>Tackle the first two points by integrating over the empirical distributions of the price, psychographics and observed brand preferences parameters given the sampling error associated with estimating these parameters</li>
+<li>To address the third issue, I point out that partially observing the ranking contains information that allows us to estimate the composition of consideration sets</li>
+<li>Because the consumer ranks the companies according to their EIU and only searches the highest ranked companies, the researcher knows from observing which companies are searched that the EIUs among all the searched companies have to be larger than the EIUs of the non-searched companies</li>
+</ul>
+<p><span class="math display">\[
+\min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j&#39; \notin S_{i}} E \left[ u_{ij&#39;} \right] 
+\]</span></p>
+<ul>
+<li>As a consumer decides simultaneously which and how many companies to search, the following condition has to hold for any searched set:</li>
+</ul>
+<p><span class="math display">\[
+\min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j&#39; \notin S_{i}} E \left[ u_{ij&#39;} \right] \cap \Gamma_{i, k} \geq \Gamma_{i, k&#39;} \quad \forall k \neq k&#39;
+\]</span></p>
 </div>
 </div>
 
