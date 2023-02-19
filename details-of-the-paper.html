@@ -226,7 +226,30 @@ j = \mathop{\rm argmax}\limits_{\boldsymbol{j \in C_{i}}} u_{ij}
 </ul>
 <p><span class="math display">\[
 P_{i \Upsilon \mid \alpha, \epsilon} = \Pr \left( \min_{j \in S_{i}} E \left[ u_{ij} \right] \geq \max_{j&#39; \notin S_{i}} E \left[ u_{ij&#39;} \right] \cap \Gamma_{i, k + 1} \geq \Gamma_{i, k&#39; + 1} \quad \forall k \neq k&#39; \right)
+\]</span>
+- Next, the consumer’s choice probability conditional on his consideration set is</p>
+<p><span class="math display">\[
+P_{ij \mid \Upsilon \alpha \epsilon} = \Pr (u_{ij} \geq u_{ij&#39;} \quad \forall j \neq j&#39;, \quad j, j&#39; \in C_{i})
 \]</span></p>
+<ul>
+<li>The consumer’s unconditional choice probability is given by:</li>
+</ul>
+<p><span class="math display">\[
+P_{ij \mid \alpha, \epsilon} = P_{i \Upsilon \mid \alpha, \epsilon} P_{ij \mid \Upsilon \alpha \epsilon}
+\]</span></p>
+<ul>
+<li>Parameters are estimated by maximizing the joint likelihood of consideration and purchase given by:</li>
+</ul>
+<p><span class="math display">\[
+L = \prod_{i = 1}^{N} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left( \prod_{l = 1}^{L} \prod_{j = 1}^{J} P_{i \Upsilon \mid \alpha, \epsilon}^{\vartheta_{il}} P_{ij \mid \Upsilon \alpha \epsilon}^{\delta_{ij}}\right) f(\alpha)f(\epsilon) d\alpha d\epsilon
+\]</span></p>
+<ul>
+<li>Since this would result in lumpy probabilities which cannot be optimized using common optimization routines, a karnel-smoothed frequency simulator is used in the estimation and smooth the probabilities using a multivariate scaled logistic CDF:</li>
+</ul>
+<p><span class="math display">\[
+F(\omega_{1}, ..., \omega_{T}; s_{1}, ..., s_{T}) = \frac{1}{1 + \sum_{t = 1}^{T} \exp(-s_{t}\omega_{t})} \quad \forall t = 1, ..., T
+\]</span>
+where <span class="math inline">\(s_{1}, ..., s_{T}\)</span> are scaling parameters.</p>
 </div>
 </div>
 
