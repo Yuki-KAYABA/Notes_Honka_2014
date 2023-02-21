@@ -80,7 +80,11 @@
 <li class="chapter" data-level="2.1.1" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#main-model-assumptions"><i class="fa fa-check"></i><b>2.1.1</b> Main Model Assumptions</a></li>
 <li class="chapter" data-level="2.1.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#model-development"><i class="fa fa-check"></i><b>2.1.2</b> Model Development</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#estimation"><i class="fa fa-check"></i><b>2.2</b> Estimation</a></li>
+<li class="chapter" data-level="2.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#estimation"><i class="fa fa-check"></i><b>2.2</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#estimation-of-consumer-price-beliefs"><i class="fa fa-check"></i><b>2.2.1</b> Estimation of Consumer Price Beliefs</a></li>
+<li class="chapter" data-level="2.2.2" data-path="details-of-the-paper.html"><a href="details-of-the-paper.html#estimation-procedure"><i class="fa fa-check"></i><b>2.2.2</b> Estimation Procedure</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -250,6 +254,31 @@ L = \prod_{i = 1}^{N} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left( \pr
 F(\omega_{1}, ..., \omega_{T}; s_{1}, ..., s_{T}) = \frac{1}{1 + \sum_{t = 1}^{T} \exp(-s_{t}\omega_{t})} \quad \forall t = 1, ..., T
 \]</span>
 where <span class="math inline">\(s_{1}, ..., s_{T}\)</span> are scaling parameters.</p>
+<div id="estimation-of-consumer-price-beliefs" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Estimation of Consumer Price Beliefs<a href="details-of-the-paper.html#estimation-of-consumer-price-beliefs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Assume that consumers have rational expectations about prices and know the company-specific distributions of prices</li>
+<li>To reflect consumer’s knowledge of the prices present in the market before the search, I only use the prices charged by the previous insurers of consumers in the sample</li>
+<li>Assume prices have an EV Type I distribution and regress all prices charged by previous insurers on personal and policy characteristics as well as company-specific fixed effects:</li>
+</ul>
+<p><span class="math display">\[
+p_{ij} \sim EV(\eta_{ij}; \mu) \quad \text{with} \quad \eta_{ij} = D_{ij}\zeta
+\]</span>
+where <span class="math inline">\(\zeta\)</span> is a coefficient vector and <span class="math inline">\(D_{ij}\)</span> contatins the personal and polcy characteristics and company-specific fixed effects</p>
+</div>
+<div id="estimation-procedure" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Estimation Procedure<a href="details-of-the-paper.html#estimation-procedure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Estimate price beliefs</li>
+<li>Estimate the search and choice model
+<ol style="list-style-type: decimal">
+<li>Take <span class="math inline">\(Q\)</span> draws for <span class="math inline">\(\alpha_{ij}\)</span> and <span class="math inline">\(\epsilon_{ij}\)</span> for each consumer / company combination</li>
+<li>Calculate <span class="math inline">\(w_{t}^{q}\)</span> for the consideration set and conditional purchase probabilities</li>
+<li>Calculate the smoothed consideration and purchase probabilities</li>
+<li>Average the unconditional purchase probabilities across all <span class="math inline">\(Q\)</span> draws for <span class="math inline">\(\alpha_{ij}\)</span> and <span class="math inline">\(\epsilon_{ij}\)</span></li>
+</ol></li>
+</ol>
+</div>
 </div>
 </div>
 

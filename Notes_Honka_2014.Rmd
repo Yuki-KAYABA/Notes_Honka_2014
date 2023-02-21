@@ -191,4 +191,23 @@ $$
 where $s_{1}, ..., s_{T}$ are scaling parameters.
 
 
+### Estimation of Consumer Price Beliefs
+
+- Assume that consumers have rational expectations about prices and know the company-specific distributions of prices
+- To reflect consumer's knowledge of the prices present in the market before the search, I only use the prices charged by the previous insurers of consumers in the sample
+- Assume prices have an EV Type I distribution and regress all prices charged by previous insurers on personal and policy characteristics as well as company-specific fixed effects:
+
+$$
+p_{ij} \sim EV(\eta_{ij}; \mu) \quad \text{with} \quad \eta_{ij} = D_{ij}\zeta
+$$
+where $\zeta$ is a coefficient vector and $D_{ij}$ contatins the personal and polcy characteristics and company-specific fixed effects
+
+### Estimation Procedure
+
+1. Estimate price beliefs
+1. Estimate the search and choice model
+    1. Take $Q$ draws for $\alpha_{ij}$ and $\epsilon_{ij}$ for each consumer / company combination
+    1. Calculate $w_{t}^{q}$ for the consideration set and conditional purchase probabilities
+    1. Calculate the smoothed consideration and purchase probabilities
+    1. Average the unconditional purchase probabilities across all $Q$ draws for $\alpha_{ij}$ and $\epsilon_{ij}$
 
